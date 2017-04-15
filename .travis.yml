@@ -1,12 +1,24 @@
 language: ruby
 
+git:
+  depth: 3
+
+branches:
+  only:
+  - master
+
+rvm:
+  - 2.4.1
+  
 before_install:
   - gem update --system
   - gem --version
 
-before_script:
-  - rake db:setup
-  - rake
+install:
+  - bundle install
 
-rvm:
-  - 2.4.1
+before_script:
+  - bundle exec rake db:setup --trace
+
+script:
+  - bundle exec rake --trace
