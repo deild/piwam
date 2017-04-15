@@ -7,7 +7,6 @@ before_install:
 before_script:
   - rake db:setup
   - rake
-  - rails s -d
 
 rvm:
   - 2.4.1
