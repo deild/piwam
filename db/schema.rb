@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20150101000011) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "accounts", force: :cascade do |t|
     t.string   "label",                     null: false
     t.string   "reference",                 null: false
@@ -59,9 +56,9 @@ ActiveRecord::Schema.define(version: 20150101000011) do
     t.datetime "updated_at",                                   null: false
   end
 
-  add_index "contributions", ["account_id"], name: "index_contributions_on_account_id", using: :btree
-  add_index "contributions", ["contribution_type_id"], name: "index_contributions_on_contribution_type_id", using: :btree
-  add_index "contributions", ["member_id"], name: "index_contributions_on_member_id", using: :btree
+  add_index "contributions", ["account_id"], name: "index_contributions_on_account_id"
+  add_index "contributions", ["contribution_type_id"], name: "index_contributions_on_contribution_type_id"
+  add_index "contributions", ["member_id"], name: "index_contributions_on_member_id"
 
   create_table "expenses", force: :cascade do |t|
     t.string   "label",                      null: false
@@ -76,8 +73,8 @@ ActiveRecord::Schema.define(version: 20150101000011) do
     t.datetime "updated_at",                 null: false
   end
 
-  add_index "expenses", ["account_id"], name: "index_expenses_on_account_id", using: :btree
-  add_index "expenses", ["activity_id"], name: "index_expenses_on_activity_id", using: :btree
+  add_index "expenses", ["account_id"], name: "index_expenses_on_account_id"
+  add_index "expenses", ["activity_id"], name: "index_expenses_on_activity_id"
 
   create_table "incomes", force: :cascade do |t|
     t.string   "label",                      null: false
@@ -92,8 +89,8 @@ ActiveRecord::Schema.define(version: 20150101000011) do
     t.datetime "updated_at",                 null: false
   end
 
-  add_index "incomes", ["account_id"], name: "index_incomes_on_account_id", using: :btree
-  add_index "incomes", ["activity_id"], name: "index_incomes_on_activity_id", using: :btree
+  add_index "incomes", ["account_id"], name: "index_incomes_on_account_id"
+  add_index "incomes", ["activity_id"], name: "index_incomes_on_activity_id"
 
   create_table "mailings", force: :cascade do |t|
     t.string   "from",       null: false
@@ -133,7 +130,7 @@ ActiveRecord::Schema.define(version: 20150101000011) do
     t.datetime "updated_at",                              null: false
   end
 
-  add_index "members", ["status_id"], name: "index_members_on_status_id", using: :btree
+  add_index "members", ["status_id"], name: "index_members_on_status_id"
 
   create_table "permissions", force: :cascade do |t|
     t.integer  "member_id",  null: false
@@ -144,7 +141,7 @@ ActiveRecord::Schema.define(version: 20150101000011) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "permissions", ["member_id"], name: "index_permissions_on_member_id", using: :btree
+  add_index "permissions", ["member_id"], name: "index_permissions_on_member_id"
 
   create_table "settings", force: :cascade do |t|
     t.string   "var",                   null: false
@@ -155,7 +152,7 @@ ActiveRecord::Schema.define(version: 20150101000011) do
     t.datetime "updated_at"
   end
 
-  add_index "settings", ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true, using: :btree
+  add_index "settings", ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true
 
   create_table "statuses", force: :cascade do |t|
     t.string   "label",                        null: false
@@ -167,31 +164,4 @@ ActiveRecord::Schema.define(version: 20150101000011) do
     t.datetime "updated_at",                   null: false
   end
 
-  add_foreign_key "accounts", "members", column: "created_by"
-  add_foreign_key "accounts", "members", column: "updated_by"
-  add_foreign_key "activities", "members", column: "created_by"
-  add_foreign_key "activities", "members", column: "updated_by"
-  add_foreign_key "contribution_types", "members", column: "created_by"
-  add_foreign_key "contribution_types", "members", column: "updated_by"
-  add_foreign_key "contributions", "accounts"
-  add_foreign_key "contributions", "contribution_types"
-  add_foreign_key "contributions", "members"
-  add_foreign_key "contributions", "members", column: "created_by"
-  add_foreign_key "contributions", "members", column: "updated_by"
-  add_foreign_key "expenses", "accounts"
-  add_foreign_key "expenses", "activities"
-  add_foreign_key "expenses", "members", column: "created_by"
-  add_foreign_key "expenses", "members", column: "updated_by"
-  add_foreign_key "incomes", "accounts"
-  add_foreign_key "incomes", "activities"
-  add_foreign_key "incomes", "members", column: "created_by"
-  add_foreign_key "incomes", "members", column: "updated_by"
-  add_foreign_key "mailings", "members", column: "created_by"
-  add_foreign_key "members", "members", column: "created_by"
-  add_foreign_key "members", "members", column: "updated_by"
-  add_foreign_key "members", "statuses"
-  add_foreign_key "permissions", "members"
-  add_foreign_key "permissions", "members", column: "created_by"
-  add_foreign_key "statuses", "members", column: "created_by"
-  add_foreign_key "statuses", "members", column: "updated_by"
 end

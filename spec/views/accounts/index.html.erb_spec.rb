@@ -1,16 +1,17 @@
 require 'rails_helper'
 
-describe "accounts/index" do
+describe 'accounts/index' do
   before(:each) do
     assign(:accounts, [
       FactoryGirl.create(:account, label: 'Caisse de monnaie', reference: 'CAISSE_MONNAIE'),
       FactoryGirl.create(:account, label: 'Compte Chèque', reference: 'CCHQ')
     ])
+    allow(controller).to receive(:current_user).and_return(Member.new)
   end
 
-  it "renders a list of accounts" do
+  it 'renders a list of accounts' do
     render
-    assert_select "tr>td", text: 'Caisse de monnaie', count: 1
-    assert_select "tr>td", text: 'Compte Chèque',     count: 1
+    assert_select 'tr>td', text: 'Caisse de monnaie', count: 1
+    assert_select 'tr>td', text: 'Compte Chèque', count: 1
   end
 end

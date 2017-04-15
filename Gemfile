@@ -13,13 +13,17 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'nilify_blanks'
 gem 'paperclip'
-gem 'pg'
-gem 'rails', '4.2.3'
+#gem 'pg'
+gem 'sqlite3'
+gem 'rails' #, '4.2.3'
 gem 'rails-settings-cached'
 gem 'ransack'
 gem 'sass-rails'
 gem 'turbolinks'
 gem 'uglifier'
+
+gem 'web-console', group: :development
+gem 'rake', group: :test
 
 group :development, :test do
   gem 'byebug'
@@ -30,5 +34,4 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'rspec-rails'
   gem 'spring'
-  gem 'web-console'
 end

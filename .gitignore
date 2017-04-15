@@ -5,3 +5,6 @@
 !/log/.keep
 /tmp
 public/system
+
+*.sqlite3
+Gemfile.lock

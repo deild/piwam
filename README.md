@@ -1,8 +1,8 @@
 # Piwam
 
-[![Codeship](https://img.shields.io/codeship/6fd598f0-9c0f-0132-825a-42ce92b0d790/master.svg)](https://codeship.com/projects/64274)
-[![Code Climate](https://img.shields.io/codeclimate/github/piwam/piwam.svg)](https://codeclimate.com/github/piwam/piwam)
-[![Coveralls](https://img.shields.io/coveralls/piwam/piwam/master.svg)](https://coveralls.io/r/piwam/piwam)
+[![Build Status](https://travis-ci.org/deild/piwam.svg?branch=master)](https://travis-ci.org/deild/piwam)
+[![Code Climate](https://codeclimate.com/github/deild/piwam/badges/gpa.svg)](https://codeclimate.com/github/deild/piwam)
+[![Coverage Status](https://coveralls.io/repos/github/deild/piwam/badge.svg)](https://coveralls.io/github/deild/piwam)
 
 Piwam Is a Wonderful Association Manager.
 
