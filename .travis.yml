@@ -4,5 +4,10 @@ before_install:
   - gem update --system
   - gem --version
 
+before_script:
+  - rake db:setup
+  - rake
+  - rails s -d
+
 rvm:
   - 2.4.1
